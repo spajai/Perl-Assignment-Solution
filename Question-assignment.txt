@@ -1,0 +1,153 @@
+Perl 5.22/MySQL 5.5 or greater stack.
+
+--------------------------------------------------------------------------------
+
+Instructions:
+Read and understand the entire document before beginning.
+
+--------------------------------------------------------------------------------
+
+Perl traditionally comes already pre-installed on Macs (though it may be a
+previous older version like 5.18) and can be used on Windows by downloading the
+free software Strawberry Perl which can be obtained here:
+http://strawberryperl.com/ or alternatively through Cygwin
+
+You shouldn't need to use any non-standard Perl CPAN libraries, but if you do,
+explain why you chose to use said library.
+
+You are REQUIRED to use the use warnings; and use strict; pragmas in your
+Perl scripts.
+
+The base exercise should take roughly 4 to 5 hours to complete.
+The bonus materials can add an hour or two, and are optional.
+
+It is intended that the entire feature could be implemented in under 8 hours.
+
+--------------------------------------------------------------------------------
+
+DATABASE LAYER:
+Refer to the attached data_load.csv file.
+
+Create a database with a sensible architecture that will store the information
+found in the CSV keeping in mind the following criteria:
+
+1:    A SERVICE MANAGER can manage multiple CUSTOMERS.
+2:    A CUSTOMER can have multiple ASSETS that they own.
+3:    An ASSET can be manufactured by a single MANUFACTURER
+4:    An ASSET is manufactured by the MANUFACTURER on a certain date.
+      It is also slated for replacement on a specified date.
+
+--------------------------------------------------------------------------------
+
+PERL/MIDDLEWARE LAYER
+Step 1:
+Create a perl script that will perform ETL operations against the CSV file
+data_load.csv and load the information into the corresponding tables.
+
+All data elements should be loaded into a table.
+
+Step 2:
+Once the data is loaded, create a Perl script which can handle each of the
+following scenarios:
+
+Scenario 1: Show all customers that each service manager manages.
+            However, if a manager ID is passed in, show only the customers for
+            that particular manager.
+
+Scenario 2: Show all assets that are manufactured by a specific manufacturer.
+            You may receive either a manufacturer ID OR the manufacturer's name,
+            your script should handle both potential parameters.
+
+Scenario 3: Show all assets that are slated for replacement within the next 6 months.
+            Optionally, a manager ID may be passed in, show only the assets for that manager.
+            Optionally, a manufacturer ID may be passed in.  Show only assets
+            manufactured by that manufacturer.
+            The manager ID and manufacturer ID may be sent together, in which
+            case you should show assets that fit BOTH criteria.
+
+In each scenario the expected output should be a hash with the following stipulations:
+1:  A hash key "successful" which indicates whether the operation was successful
+    as represented by a boolean 1 or 0.
+
+2:  A hash key of "metrics" which contains the following subset of information:
+        A hash key "startTime" which indicates the date and time the operation was started on
+        A hash key "endTime" which indicates the date and time the operation ended on
+        A hash key "elapsedTime" which indicates how long the operation took, in seconds (ex: 0.0589)
+
+3:  A hash key "data" which contains the results of our query.
+        It can be formatted in any way you feel makes sense (hash, array of hashes, etc)
+        A sample for scenario 1 is provided below.
+
+--------------------------------------------------------------------------------
+
+Sample output Scenario 1:
+{
+    'successful' => 1,
+    'metrics' => {
+        'startTime' => 2018-08-01 09:50:22,
+        'endTime' => 2018-08-01 09:50:23,
+        'elapsedTime' => 1.267
+    },
+    'data' => {
+        'MANAGERID' => JS4782,
+        'MANAGERNAME' => Jane Stevens,
+        'CUSTOMERS' => [
+            {
+                'CUSTOMERNAME' => 'WaltDisney'
+            },
+            {
+                'CUSTOMERNAME' => 'HondaAmerica'
+            },
+            {
+                'CUSTOMERNAME' => 'HondaJapan'
+            }
+        ]
+    }
+}
+
+--------------------------------------------------------------------------------
+These are optional, but illustrate advanced knowledge of the subject matter.
+
+PERL BONUS 1:
+Instead of the Perl scripts outputting a hash, convert the hash to a JSON object.
+
+PERL BONUS 2:
+Some of the data in the CSV file is not clean.  Review the data in the file and
+before inserting the data into the database, clean the data in a way that makes
+sense.
+
+SQL BONUS 3:
+Do not use inline SQL in your Perl scripts, instead create stored procedures
+that are then called from the Perl script.
+
+SQL/PERL BONUS 4:
+Create a logging table and reusable Perl function that logs the script name that
+was run, any parameters that were used, the start time, and the finish time of
+the script.
+
+--------------------------------------------------------------------------------
+Following below is a copy of the raw CSV data, just to be safe.
+--------------------------------------------------------------------------------
+
+MANAGERID,MANAGER_NAME,CUSTOMER_NAME,ASSET,MANUFACTURER_ID,MANUFACTURER,MANUFACTURE_DATE,REPLACE_DATE
+BT6704,Bobby Tables,VERIZON,SWITCH-80,1,CISCO,2017-06-01,2020-12-24
+JS1501,Joe Smith,Texaco,ROUTER-101,1,CISCO,2016-01-01,2018-10-01
+JS1501,Joe Smith,Texaco,SWITCH-57,2,LINKSYS,2016-02-01,2019-01-01
+JS1501,Joe Smith,Texaco,ROUTER-19/r/n,1,CISCO,2018-03-01,2020-06-01
+JS1501,Joe Smith,Texaco,AWS-1337,3,AMAZON,2016-06-01,2018-09-15
+JS1501,Joe Smith,WalMart\r\n,ROUTER-178,1,CISCO,2016-02-01,2018-11-01
+JS1501,Joe Smith,WalMart\r\n,ROUTER-942,1,CISCO\r\n,2017-08-01,2019-12-01
+JS1501,Joe Smith,WalMart\r\n,AWS-42,3,AMAZON,2016-10-01,2018-08-15
+JS1501,Joe Smith,WalMart\r\n,AWS-65,3,AMAZON,2016-05-15,2018-08-15
+JS1501,Joe Smith,WalMart\r\n,AWS-901,3,AMAZON,2016-07-01,2018-08-15
+JS4782,Jane Stevens,WaltDisney,SWITCH-12,2,LINKSYS,2016-02-01,2019-01-01
+JS4782,Jane Stevens,WaltDisney,SWITCH-13,4,TP-LINK,2016-02-01,2019-01-01
+JS4782,Jane Stevens,WaltDisney,SWITCH-14,4,TP-LINK,2016-02-01,2019-01-01
+JS4782,Jane Stevens,WaltDisney,SWITCH-15,2,LINKSYS,2016-02-01,2019-01-01
+JS4782,Jane Stevens,WaltDisney,SWITCH-16,2,LINKSYS,2016-02-01,2019-01-01
+JS4782,Jane Stevens,HondaAmerica,ROUTER-B16,1,CISCO,2017-01-01,2018-12-30
+JS4782,Jane Stevens,HondaJapan\r\n,ROUTER-F22,1,CISCO,2017-01-01,2018-12-30
+RT1405,Russel Thompson,VERIZON,SWITCH-1C,2,LINKSYS,2018-01-01,2021-01-01
+RT1405,Russel Thompson,VERIZON,SWITCH-14D,2,LINKSYS,2018-01-01,2021-01-01
+RT1405,Russel Thompson,VERIZON,ROUTER-1C,1,CISCO,2017-01-01,2020-01-01
+RT1405,Russel Thompson,VERIZON,ROUTER-14D,1,CISCO,2017-01-01,2020-01-01
