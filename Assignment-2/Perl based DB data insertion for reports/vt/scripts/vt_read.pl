@@ -17,8 +17,8 @@ my @files = split (',',$data);
 use DBI;
 use Try::Tiny;
 
-my $username='root';
-my $pass='root';
+my $username='';
+my $pass='';
 
 open (my $log ,'>',"../log/log_db.txt") || die("could not create the file: ../log/log_db.txt");
 
