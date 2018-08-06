@@ -2,7 +2,7 @@ package VT;
 
 ###################################################
 #
-#  Author eamil : Spajai@cpan.org
+#  Author email : Spajai@cpan.org
 #
 #
 ####################################################
@@ -11,8 +11,8 @@ package VT;
 
 use strict;
 use warnings;
+
 use Try::Tiny;
-# use JSON::Tiny;
 use DBI;
 use JSON;
 use File::Find;
@@ -88,7 +88,5 @@ sub save2db {
 
 	return;
 }
-
-
 
 1;
