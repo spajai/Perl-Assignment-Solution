@@ -16,8 +16,8 @@ sub new {
 sub connect_db {
     my $self     = shift;
     my $dsn      = 'DBI:mysql:shop';
-    my $username = "root";
-    my $password = 'root';
+    my $username = "";
+    my $password = '';
     my %attr     = (
         PrintError => 0,
         RaiseError => 1,
