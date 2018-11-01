@@ -1,0 +1,682 @@
+NOTE INSTALL FOLLOWING MODULES USING CPAN
+use following command :- 
+
+sudo cpan install -f LWP::UserAgent HTML::TreeBuilder SQL::Abstract
+
+
+#############################unit test result ###########################
+
+
+ubuntu@ubuntu-xenial:~/odesk-perl-test$ prove t/*
+t/01-oDesk-Config.t ................................. ok
+t/02-oDesk-DB.t ..................................... ok
+t/03-oDesk-Model-Country.t .......................... ok
+t/04-oDesk-Model-Skill.t ............................ ok
+t/05-oDesk-Model-Contractor.t ....................... ok
+t/06-oDesk-Parser-ProgrammingLanguages-Wikipedia.t .. ok
+All tests successful.
+Files=6, Tests=641,  6 wallclock secs ( 0.11 usr  0.04 sys +  3.15 cusr  0.25 csys =  3.55 CPU)
+Result: PASS
+
+#############################Individual unit test ############################
+############## 01-oDesk-Config.t
+ubuntu@ubuntu-xenial:~/odesk-perl-test$ perl t/01-oDesk-Config.t
+ok 1 - use oDesk::Config;
+ok 2 - An object of class 'oDesk::Config' isa 'oDesk::Config'
+ok 3 - base_path check
+1..3
+############## 02-oDesk-DB.t
+ubuntu@ubuntu-xenial:~/odesk-perl-test$ perl t/02-oDesk-DB.t
+ok 1 - use oDesk::DB;
+ok 2 - An object of class 'oDesk::DB' isa 'oDesk::DB'
+ok 3 - An object of class 'oDesk::DB' isa 'oDesk::DB'
+ok 4 - An object of class 'oDesk::DB' isa 'oDesk::DB'
+ok 5 - singleton
+ok 6 - An object of class 'DBI::db' isa 'DBI::db'
+ok 7 - expected records are correct
+1..7
+############## 03-oDesk-Model-Country.t 
+ubuntu@ubuntu-xenial:~/odesk-perl-test$ perl t/03-oDesk-Model-Country.t 
+ok 1 - use oDesk::DB;
+ok 2 - use oDesk::Model::Country;
+ok 3 - db is required parameter
+ok 4 - An object of class 'oDesk::Model::Country' isa 'oDesk::Model::Country'
+ok 5 - An object of class 'oDesk::Model::Country' isa 'oDesk::Model::Country'
+ok 6 - get_all_hashref
+ok 7 - An object of class 'oDesk::Model::Country' isa 'oDesk::Model::Country'
+ok 8 - arrayref returned in scalar context
+ok 9 - contents of arrayref are correct
+ok 10 - array returned has correct number of elements
+ok 11 - contents of arrayref are correct
+ok 12 - An object of class 'oDesk::Model::Country' isa 'oDesk::Model::Country'
+ok 13 - get_name_for_id - 1 Afghanistan
+ok 14 - get_id_for_name - 1 Afghanistan
+ok 15 - get_name_for_id - 2 Albania
+ok 16 - get_id_for_name - 2 Albania
+ok 17 - get_name_for_id - 3 Algeria
+ok 18 - get_id_for_name - 3 Algeria
+ok 19 - get_name_for_id - 4 Andorra
+ok 20 - get_id_for_name - 4 Andorra
+ok 21 - get_name_for_id - 5 Angola
+ok 22 - get_id_for_name - 5 Angola
+ok 23 - get_name_for_id - 6 Antigua and Barbuda
+ok 24 - get_id_for_name - 6 Antigua and Barbuda
+ok 25 - get_name_for_id - 7 Argentina
+ok 26 - get_id_for_name - 7 Argentina
+ok 27 - get_name_for_id - 8 Armenia
+ok 28 - get_id_for_name - 8 Armenia
+ok 29 - get_name_for_id - 9 Australia
+ok 30 - get_id_for_name - 9 Australia
+ok 31 - get_name_for_id - 10 Austria
+ok 32 - get_id_for_name - 10 Austria
+ok 33 - get_name_for_id - 11 Azerbaijan
+ok 34 - get_id_for_name - 11 Azerbaijan
+ok 35 - get_name_for_id - 12 Bahamas
+ok 36 - get_id_for_name - 12 Bahamas
+ok 37 - get_name_for_id - 13 Bahrain
+ok 38 - get_id_for_name - 13 Bahrain
+ok 39 - get_name_for_id - 14 Bangladesh
+ok 40 - get_id_for_name - 14 Bangladesh
+ok 41 - get_name_for_id - 15 Barbados
+ok 42 - get_id_for_name - 15 Barbados
+ok 43 - get_name_for_id - 16 Belarus
+ok 44 - get_id_for_name - 16 Belarus
+ok 45 - get_name_for_id - 17 Belgium
+ok 46 - get_id_for_name - 17 Belgium
+ok 47 - get_name_for_id - 18 Belize
+ok 48 - get_id_for_name - 18 Belize
+ok 49 - get_name_for_id - 19 Benin
+ok 50 - get_id_for_name - 19 Benin
+ok 51 - get_name_for_id - 20 Bhutan
+ok 52 - get_id_for_name - 20 Bhutan
+ok 53 - get_name_for_id - 21 Bolivia
+ok 54 - get_id_for_name - 21 Bolivia
+ok 55 - get_name_for_id - 22 Bosnia and Herzegovina
+ok 56 - get_id_for_name - 22 Bosnia and Herzegovina
+ok 57 - get_name_for_id - 23 Botswana
+ok 58 - get_id_for_name - 23 Botswana
+ok 59 - get_name_for_id - 24 Brazil
+ok 60 - get_id_for_name - 24 Brazil
+ok 61 - get_name_for_id - 25 Brunei
+ok 62 - get_id_for_name - 25 Brunei
+ok 63 - get_name_for_id - 26 Bulgaria
+ok 64 - get_id_for_name - 26 Bulgaria
+ok 65 - get_name_for_id - 27 Burkina Faso
+ok 66 - get_id_for_name - 27 Burkina Faso
+ok 67 - get_name_for_id - 28 Burundi
+ok 68 - get_id_for_name - 28 Burundi
+ok 69 - get_name_for_id - 29 Cambodia
+ok 70 - get_id_for_name - 29 Cambodia
+ok 71 - get_name_for_id - 30 Cameroon
+ok 72 - get_id_for_name - 30 Cameroon
+ok 73 - get_name_for_id - 31 Canada
+ok 74 - get_id_for_name - 31 Canada
+ok 75 - get_name_for_id - 32 Cape Verde
+ok 76 - get_id_for_name - 32 Cape Verde
+ok 77 - get_name_for_id - 33 Central African Republic
+ok 78 - get_id_for_name - 33 Central African Republic
+ok 79 - get_name_for_id - 34 Chad
+ok 80 - get_id_for_name - 34 Chad
+ok 81 - get_name_for_id - 35 Chile
+ok 82 - get_id_for_name - 35 Chile
+ok 83 - get_name_for_id - 36 China
+ok 84 - get_id_for_name - 36 China
+ok 85 - get_name_for_id - 37 Colombia
+ok 86 - get_id_for_name - 37 Colombia
+ok 87 - get_name_for_id - 38 Comoros
+ok 88 - get_id_for_name - 38 Comoros
+ok 89 - get_name_for_id - 39 Congo
+ok 90 - get_id_for_name - 39 Congo
+ok 91 - get_name_for_id - 40 Democratic Republic of Congo
+ok 92 - get_id_for_name - 40 Democratic Republic of Congo
+ok 93 - get_name_for_id - 41 Costa Rica
+ok 94 - get_id_for_name - 41 Costa Rica
+ok 95 - get_name_for_id - 42 Cote d'Ivoire (Ivory Coast)
+ok 96 - get_id_for_name - 42 Cote d'Ivoire (Ivory Coast)
+ok 97 - get_name_for_id - 43 Croatia
+ok 98 - get_id_for_name - 43 Croatia
+ok 99 - get_name_for_id - 44 Cuba
+ok 100 - get_id_for_name - 44 Cuba
+ok 101 - get_name_for_id - 45 Cyprus
+ok 102 - get_id_for_name - 45 Cyprus
+ok 103 - get_name_for_id - 46 Czech Republic
+ok 104 - get_id_for_name - 46 Czech Republic
+ok 105 - get_name_for_id - 47 Denmark
+ok 106 - get_id_for_name - 47 Denmark
+ok 107 - get_name_for_id - 48 Djibouti
+ok 108 - get_id_for_name - 48 Djibouti
+ok 109 - get_name_for_id - 49 Dominica
+ok 110 - get_id_for_name - 49 Dominica
+ok 111 - get_name_for_id - 50 Dominican Republic
+ok 112 - get_id_for_name - 50 Dominican Republic
+ok 113 - get_name_for_id - 51 Ecuador
+ok 114 - get_id_for_name - 51 Ecuador
+ok 115 - get_name_for_id - 52 Egypt
+ok 116 - get_id_for_name - 52 Egypt
+ok 117 - get_name_for_id - 53 El Salvador
+ok 118 - get_id_for_name - 53 El Salvador
+ok 119 - get_name_for_id - 54 Equatorial Guinea
+ok 120 - get_id_for_name - 54 Equatorial Guinea
+ok 121 - get_name_for_id - 55 Eritrea
+ok 122 - get_id_for_name - 55 Eritrea
+ok 123 - get_name_for_id - 56 Estonia
+ok 124 - get_id_for_name - 56 Estonia
+ok 125 - get_name_for_id - 57 Ethiopia
+ok 126 - get_id_for_name - 57 Ethiopia
+ok 127 - get_name_for_id - 58 Fiji
+ok 128 - get_id_for_name - 58 Fiji
+ok 129 - get_name_for_id - 59 Finland
+ok 130 - get_id_for_name - 59 Finland
+ok 131 - get_name_for_id - 60 France
+ok 132 - get_id_for_name - 60 France
+ok 133 - get_name_for_id - 61 Gabon
+ok 134 - get_id_for_name - 61 Gabon
+ok 135 - get_name_for_id - 62 Gambia
+ok 136 - get_id_for_name - 62 Gambia
+ok 137 - get_name_for_id - 63 Georgia
+ok 138 - get_id_for_name - 63 Georgia
+ok 139 - get_name_for_id - 64 Germany
+ok 140 - get_id_for_name - 64 Germany
+ok 141 - get_name_for_id - 65 Ghana
+ok 142 - get_id_for_name - 65 Ghana
+ok 143 - get_name_for_id - 66 Greece
+ok 144 - get_id_for_name - 66 Greece
+ok 145 - get_name_for_id - 67 Grenada
+ok 146 - get_id_for_name - 67 Grenada
+ok 147 - get_name_for_id - 68 Guatemala
+ok 148 - get_id_for_name - 68 Guatemala
+ok 149 - get_name_for_id - 69 Guinea
+ok 150 - get_id_for_name - 69 Guinea
+ok 151 - get_name_for_id - 70 Guinea-Bissau
+ok 152 - get_id_for_name - 70 Guinea-Bissau
+ok 153 - get_name_for_id - 71 Guyana
+ok 154 - get_id_for_name - 71 Guyana
+ok 155 - get_name_for_id - 72 Haiti
+ok 156 - get_id_for_name - 72 Haiti
+ok 157 - get_name_for_id - 73 Honduras
+ok 158 - get_id_for_name - 73 Honduras
+ok 159 - get_name_for_id - 74 Hungary
+ok 160 - get_id_for_name - 74 Hungary
+ok 161 - get_name_for_id - 75 Iceland
+ok 162 - get_id_for_name - 75 Iceland
+ok 163 - get_name_for_id - 76 India
+ok 164 - get_id_for_name - 76 India
+ok 165 - get_name_for_id - 77 Indonesia
+ok 166 - get_id_for_name - 77 Indonesia
+ok 167 - get_name_for_id - 78 Iran
+ok 168 - get_id_for_name - 78 Iran
+ok 169 - get_name_for_id - 79 Iraq
+ok 170 - get_id_for_name - 79 Iraq
+ok 171 - get_name_for_id - 80 Ireland
+ok 172 - get_id_for_name - 80 Ireland
+ok 173 - get_name_for_id - 81 Israel
+ok 174 - get_id_for_name - 81 Israel
+ok 175 - get_name_for_id - 82 Italy
+ok 176 - get_id_for_name - 82 Italy
+ok 177 - get_name_for_id - 83 Jamaica
+ok 178 - get_id_for_name - 83 Jamaica
+ok 179 - get_name_for_id - 84 Japan
+ok 180 - get_id_for_name - 84 Japan
+ok 181 - get_name_for_id - 85 Jordan
+ok 182 - get_id_for_name - 85 Jordan
+ok 183 - get_name_for_id - 86 Kazakhstan
+ok 184 - get_id_for_name - 86 Kazakhstan
+ok 185 - get_name_for_id - 87 Kenya
+ok 186 - get_id_for_name - 87 Kenya
+ok 187 - get_name_for_id - 88 Kiribati
+ok 188 - get_id_for_name - 88 Kiribati
+ok 189 - get_name_for_id - 89 North Korea
+ok 190 - get_id_for_name - 89 North Korea
+ok 191 - get_name_for_id - 90 South Korea
+ok 192 - get_id_for_name - 90 South Korea
+ok 193 - get_name_for_id - 91 Kuwait
+ok 194 - get_id_for_name - 91 Kuwait
+ok 195 - get_name_for_id - 92 Kyrgyzstan
+ok 196 - get_id_for_name - 92 Kyrgyzstan
+ok 197 - get_name_for_id - 93 Laos
+ok 198 - get_id_for_name - 93 Laos
+ok 199 - get_name_for_id - 94 Latvia
+ok 200 - get_id_for_name - 94 Latvia
+ok 201 - get_name_for_id - 95 Lebanon
+ok 202 - get_id_for_name - 95 Lebanon
+ok 203 - get_name_for_id - 96 Lesotho
+ok 204 - get_id_for_name - 96 Lesotho
+ok 205 - get_name_for_id - 97 Liberia
+ok 206 - get_id_for_name - 97 Liberia
+ok 207 - get_name_for_id - 98 Libya
+ok 208 - get_id_for_name - 98 Libya
+ok 209 - get_name_for_id - 99 Liechtenstein
+ok 210 - get_id_for_name - 99 Liechtenstein
+ok 211 - get_name_for_id - 100 Lithuania
+ok 212 - get_id_for_name - 100 Lithuania
+ok 213 - get_name_for_id - 101 Luxembourg
+ok 214 - get_id_for_name - 101 Luxembourg
+ok 215 - get_name_for_id - 102 Macedonia
+ok 216 - get_id_for_name - 102 Macedonia
+ok 217 - get_name_for_id - 103 Madagascar
+ok 218 - get_id_for_name - 103 Madagascar
+ok 219 - get_name_for_id - 104 Malawi
+ok 220 - get_id_for_name - 104 Malawi
+ok 221 - get_name_for_id - 105 Malaysia
+ok 222 - get_id_for_name - 105 Malaysia
+ok 223 - get_name_for_id - 106 Maldives
+ok 224 - get_id_for_name - 106 Maldives
+ok 225 - get_name_for_id - 107 Mali
+ok 226 - get_id_for_name - 107 Mali
+ok 227 - get_name_for_id - 108 Malta
+ok 228 - get_id_for_name - 108 Malta
+ok 229 - get_name_for_id - 109 Marshall Islands
+ok 230 - get_id_for_name - 109 Marshall Islands
+ok 231 - get_name_for_id - 110 Mauritania
+ok 232 - get_id_for_name - 110 Mauritania
+ok 233 - get_name_for_id - 111 Mauritius
+ok 234 - get_id_for_name - 111 Mauritius
+ok 235 - get_name_for_id - 112 Mexico
+ok 236 - get_id_for_name - 112 Mexico
+ok 237 - get_name_for_id - 113 Micronesia
+ok 238 - get_id_for_name - 113 Micronesia
+ok 239 - get_name_for_id - 114 Moldova
+ok 240 - get_id_for_name - 114 Moldova
+ok 241 - get_name_for_id - 115 Monaco
+ok 242 - get_id_for_name - 115 Monaco
+ok 243 - get_name_for_id - 116 Mongolia
+ok 244 - get_id_for_name - 116 Mongolia
+ok 245 - get_name_for_id - 117 Montenegro
+ok 246 - get_id_for_name - 117 Montenegro
+ok 247 - get_name_for_id - 118 Morocco
+ok 248 - get_id_for_name - 118 Morocco
+ok 249 - get_name_for_id - 119 Mozambique
+ok 250 - get_id_for_name - 119 Mozambique
+ok 251 - get_name_for_id - 120 Myanmar (Burma)
+ok 252 - get_id_for_name - 120 Myanmar (Burma)
+ok 253 - get_name_for_id - 121 Namibia
+ok 254 - get_id_for_name - 121 Namibia
+ok 255 - get_name_for_id - 122 Nauru
+ok 256 - get_id_for_name - 122 Nauru
+ok 257 - get_name_for_id - 123 Nepal
+ok 258 - get_id_for_name - 123 Nepal
+ok 259 - get_name_for_id - 124 Netherlands
+ok 260 - get_id_for_name - 124 Netherlands
+ok 261 - get_name_for_id - 125 New Zealand
+ok 262 - get_id_for_name - 125 New Zealand
+ok 263 - get_name_for_id - 126 Nicaragua
+ok 264 - get_id_for_name - 126 Nicaragua
+ok 265 - get_name_for_id - 127 Niger
+ok 266 - get_id_for_name - 127 Niger
+ok 267 - get_name_for_id - 128 Nigeria
+ok 268 - get_id_for_name - 128 Nigeria
+ok 269 - get_name_for_id - 129 Norway
+ok 270 - get_id_for_name - 129 Norway
+ok 271 - get_name_for_id - 130 Oman
+ok 272 - get_id_for_name - 130 Oman
+ok 273 - get_name_for_id - 131 Pakistan
+ok 274 - get_id_for_name - 131 Pakistan
+ok 275 - get_name_for_id - 132 Palau
+ok 276 - get_id_for_name - 132 Palau
+ok 277 - get_name_for_id - 133 Panama
+ok 278 - get_id_for_name - 133 Panama
+ok 279 - get_name_for_id - 134 Papua New Guinea
+ok 280 - get_id_for_name - 134 Papua New Guinea
+ok 281 - get_name_for_id - 135 Paraguay
+ok 282 - get_id_for_name - 135 Paraguay
+ok 283 - get_name_for_id - 136 Peru
+ok 284 - get_id_for_name - 136 Peru
+ok 285 - get_name_for_id - 137 Philippines
+ok 286 - get_id_for_name - 137 Philippines
+ok 287 - get_name_for_id - 138 Poland
+ok 288 - get_id_for_name - 138 Poland
+ok 289 - get_name_for_id - 139 Portugal
+ok 290 - get_id_for_name - 139 Portugal
+ok 291 - get_name_for_id - 140 Qatar
+ok 292 - get_id_for_name - 140 Qatar
+ok 293 - get_name_for_id - 141 Romania
+ok 294 - get_id_for_name - 141 Romania
+ok 295 - get_name_for_id - 142 Russia
+ok 296 - get_id_for_name - 142 Russia
+ok 297 - get_name_for_id - 143 Rwanda
+ok 298 - get_id_for_name - 143 Rwanda
+ok 299 - get_name_for_id - 144 Saint Kitts and Nevis
+ok 300 - get_id_for_name - 144 Saint Kitts and Nevis
+ok 301 - get_name_for_id - 145 Saint Lucia
+ok 302 - get_id_for_name - 145 Saint Lucia
+ok 303 - get_name_for_id - 146 Saint Vincent and the Grenadines
+ok 304 - get_id_for_name - 146 Saint Vincent and the Grenadines
+ok 305 - get_name_for_id - 147 Samoa
+ok 306 - get_id_for_name - 147 Samoa
+ok 307 - get_name_for_id - 148 San Marino
+ok 308 - get_id_for_name - 148 San Marino
+ok 309 - get_name_for_id - 149 Sao Tome and Principe
+ok 310 - get_id_for_name - 149 Sao Tome and Principe
+ok 311 - get_name_for_id - 150 Saudi Arabia
+ok 312 - get_id_for_name - 150 Saudi Arabia
+ok 313 - get_name_for_id - 151 Senegal
+ok 314 - get_id_for_name - 151 Senegal
+ok 315 - get_name_for_id - 152 Serbia
+ok 316 - get_id_for_name - 152 Serbia
+ok 317 - get_name_for_id - 153 Seychelles
+ok 318 - get_id_for_name - 153 Seychelles
+ok 319 - get_name_for_id - 154 Sierra Leone
+ok 320 - get_id_for_name - 154 Sierra Leone
+ok 321 - get_name_for_id - 155 Singapore
+ok 322 - get_id_for_name - 155 Singapore
+ok 323 - get_name_for_id - 156 Slovakia
+ok 324 - get_id_for_name - 156 Slovakia
+ok 325 - get_name_for_id - 157 Slovenia
+ok 326 - get_id_for_name - 157 Slovenia
+ok 327 - get_name_for_id - 158 Solomon Islands
+ok 328 - get_id_for_name - 158 Solomon Islands
+ok 329 - get_name_for_id - 159 Somalia
+ok 330 - get_id_for_name - 159 Somalia
+ok 331 - get_name_for_id - 160 South Africa
+ok 332 - get_id_for_name - 160 South Africa
+ok 333 - get_name_for_id - 161 Spain
+ok 334 - get_id_for_name - 161 Spain
+ok 335 - get_name_for_id - 162 Sri Lanka
+ok 336 - get_id_for_name - 162 Sri Lanka
+ok 337 - get_name_for_id - 163 Sudan
+ok 338 - get_id_for_name - 163 Sudan
+ok 339 - get_name_for_id - 164 Suriname
+ok 340 - get_id_for_name - 164 Suriname
+ok 341 - get_name_for_id - 165 Swaziland
+ok 342 - get_id_for_name - 165 Swaziland
+ok 343 - get_name_for_id - 166 Sweden
+ok 344 - get_id_for_name - 166 Sweden
+ok 345 - get_name_for_id - 167 Switzerland
+ok 346 - get_id_for_name - 167 Switzerland
+ok 347 - get_name_for_id - 168 Syria
+ok 348 - get_id_for_name - 168 Syria
+ok 349 - get_name_for_id - 169 Tajikistan
+ok 350 - get_id_for_name - 169 Tajikistan
+ok 351 - get_name_for_id - 170 Tanzania
+ok 352 - get_id_for_name - 170 Tanzania
+ok 353 - get_name_for_id - 171 Thailand
+ok 354 - get_id_for_name - 171 Thailand
+ok 355 - get_name_for_id - 172 Timor-Leste (East Timor)
+ok 356 - get_id_for_name - 172 Timor-Leste (East Timor)
+ok 357 - get_name_for_id - 173 Togo
+ok 358 - get_id_for_name - 173 Togo
+ok 359 - get_name_for_id - 174 Tonga
+ok 360 - get_id_for_name - 174 Tonga
+ok 361 - get_name_for_id - 175 Trinidad and Tobago
+ok 362 - get_id_for_name - 175 Trinidad and Tobago
+ok 363 - get_name_for_id - 176 Tunisia
+ok 364 - get_id_for_name - 176 Tunisia
+ok 365 - get_name_for_id - 177 Turkey
+ok 366 - get_id_for_name - 177 Turkey
+ok 367 - get_name_for_id - 178 Turkmenistan
+ok 368 - get_id_for_name - 178 Turkmenistan
+ok 369 - get_name_for_id - 179 Tuvalu
+ok 370 - get_id_for_name - 179 Tuvalu
+ok 371 - get_name_for_id - 180 Uganda
+ok 372 - get_id_for_name - 180 Uganda
+ok 373 - get_name_for_id - 181 Ukraine
+ok 374 - get_id_for_name - 181 Ukraine
+ok 375 - get_name_for_id - 182 United Arab Emirates
+ok 376 - get_id_for_name - 182 United Arab Emirates
+ok 377 - get_name_for_id - 183 United Kingdom
+ok 378 - get_id_for_name - 183 United Kingdom
+ok 379 - get_name_for_id - 184 United States
+ok 380 - get_id_for_name - 184 United States
+ok 381 - get_name_for_id - 185 Uruguay
+ok 382 - get_id_for_name - 185 Uruguay
+ok 383 - get_name_for_id - 186 Uzbekistan
+ok 384 - get_id_for_name - 186 Uzbekistan
+ok 385 - get_name_for_id - 187 Vanuatu
+ok 386 - get_id_for_name - 187 Vanuatu
+ok 387 - get_name_for_id - 188 Vatican City
+ok 388 - get_id_for_name - 188 Vatican City
+ok 389 - get_name_for_id - 189 Venezuela
+ok 390 - get_id_for_name - 189 Venezuela
+ok 391 - get_name_for_id - 190 Vietnam
+ok 392 - get_id_for_name - 190 Vietnam
+ok 393 - get_name_for_id - 191 Yemen
+ok 394 - get_id_for_name - 191 Yemen
+ok 395 - get_name_for_id - 192 Zambia
+ok 396 - get_id_for_name - 192 Zambia
+ok 397 - get_name_for_id - 193 Zimbabwe
+ok 398 - get_id_for_name - 193 Zimbabwe
+ok 399 - get_name_for_id - 194 Abkhazia
+ok 400 - get_id_for_name - 194 Abkhazia
+ok 401 - get_name_for_id - 195 Taiwan
+ok 402 - get_id_for_name - 195 Taiwan
+ok 403 - get_name_for_id - 196 Nagorno-Karabakh
+ok 404 - get_id_for_name - 196 Nagorno-Karabakh
+ok 405 - get_name_for_id - 197 Northern Cyprus
+ok 406 - get_id_for_name - 197 Northern Cyprus
+ok 407 - get_name_for_id - 198 Pridnestrovie (Transnistria)
+ok 408 - get_id_for_name - 198 Pridnestrovie (Transnistria)
+ok 409 - get_name_for_id - 199 Somaliland
+ok 410 - get_id_for_name - 199 Somaliland
+ok 411 - get_name_for_id - 200 South Ossetia
+ok 412 - get_id_for_name - 200 South Ossetia
+ok 413 - get_name_for_id - 201 Ashmore and Cartier Islands
+ok 414 - get_id_for_name - 201 Ashmore and Cartier Islands
+ok 415 - get_name_for_id - 202 Christmas Island
+ok 416 - get_id_for_name - 202 Christmas Island
+ok 417 - get_name_for_id - 203 Cocos (Keeling) Islands
+ok 418 - get_id_for_name - 203 Cocos (Keeling) Islands
+ok 419 - get_name_for_id - 204 Coral Sea Islands
+ok 420 - get_id_for_name - 204 Coral Sea Islands
+ok 421 - get_name_for_id - 205 Heard Island and McDonald Islands
+ok 422 - get_id_for_name - 205 Heard Island and McDonald Islands
+ok 423 - get_name_for_id - 206 Norfolk Island
+ok 424 - get_id_for_name - 206 Norfolk Island
+ok 425 - get_name_for_id - 207 New Caledonia
+ok 426 - get_id_for_name - 207 New Caledonia
+ok 427 - get_name_for_id - 208 French Polynesia
+ok 428 - get_id_for_name - 208 French Polynesia
+ok 429 - get_name_for_id - 209 Mayotte
+ok 430 - get_id_for_name - 209 Mayotte
+ok 431 - get_name_for_id - 210 Saint Barthelemy
+ok 432 - get_id_for_name - 210 Saint Barthelemy
+ok 433 - get_name_for_id - 211 Saint Martin
+ok 434 - get_id_for_name - 211 Saint Martin
+ok 435 - get_name_for_id - 212 Saint Pierre and Miquelon
+ok 436 - get_id_for_name - 212 Saint Pierre and Miquelon
+ok 437 - get_name_for_id - 213 Wallis and Futuna
+ok 438 - get_id_for_name - 213 Wallis and Futuna
+ok 439 - get_name_for_id - 214 French Southern and Antarctic Lands
+ok 440 - get_id_for_name - 214 French Southern and Antarctic Lands
+ok 441 - get_name_for_id - 215 Clipperton Island
+ok 442 - get_id_for_name - 215 Clipperton Island
+ok 443 - get_name_for_id - 216 Bouvet Island
+ok 444 - get_id_for_name - 216 Bouvet Island
+ok 445 - get_name_for_id - 217 Cook Islands
+ok 446 - get_id_for_name - 217 Cook Islands
+ok 447 - get_name_for_id - 218 Niue
+ok 448 - get_id_for_name - 218 Niue
+ok 449 - get_name_for_id - 219 Tokelau
+ok 450 - get_id_for_name - 219 Tokelau
+ok 451 - get_name_for_id - 220 Guernsey
+ok 452 - get_id_for_name - 220 Guernsey
+ok 453 - get_name_for_id - 221 Isle of Man
+ok 454 - get_id_for_name - 221 Isle of Man
+ok 455 - get_name_for_id - 222 Jersey
+ok 456 - get_id_for_name - 222 Jersey
+ok 457 - get_name_for_id - 223 Anguilla
+ok 458 - get_id_for_name - 223 Anguilla
+ok 459 - get_name_for_id - 224 Bermuda
+ok 460 - get_id_for_name - 224 Bermuda
+ok 461 - get_name_for_id - 225 British Indian Ocean Territory
+ok 462 - get_id_for_name - 225 British Indian Ocean Territory
+ok 463 - get_name_for_id - 226 British Sovereign Base Areas
+ok 464 - get_id_for_name - 226 British Sovereign Base Areas
+ok 465 - get_name_for_id - 227 British Virgin Islands
+ok 466 - get_id_for_name - 227 British Virgin Islands
+ok 467 - get_name_for_id - 228 Cayman Islands
+ok 468 - get_id_for_name - 228 Cayman Islands
+ok 469 - get_name_for_id - 229 Falkland Islands (Islas Malvinas)
+ok 470 - get_id_for_name - 229 Falkland Islands (Islas Malvinas)
+ok 471 - get_name_for_id - 230 Gibraltar
+ok 472 - get_id_for_name - 230 Gibraltar
+ok 473 - get_name_for_id - 231 Montserrat
+ok 474 - get_id_for_name - 231 Montserrat
+ok 475 - get_name_for_id - 232 Pitcairn Islands
+ok 476 - get_id_for_name - 232 Pitcairn Islands
+ok 477 - get_name_for_id - 233 Saint Helena
+ok 478 - get_id_for_name - 233 Saint Helena
+ok 479 - get_name_for_id - 234 South Georgia & South Sandwich Islands
+ok 480 - get_id_for_name - 234 South Georgia & South Sandwich Islands
+ok 481 - get_name_for_id - 235 Turks and Caicos Islands
+ok 482 - get_id_for_name - 235 Turks and Caicos Islands
+ok 483 - get_name_for_id - 236 Northern Mariana Islands
+ok 484 - get_id_for_name - 236 Northern Mariana Islands
+ok 485 - get_name_for_id - 237 Puerto Rico
+ok 486 - get_id_for_name - 237 Puerto Rico
+ok 487 - get_name_for_id - 238 American Samoa
+ok 488 - get_id_for_name - 238 American Samoa
+ok 489 - get_name_for_id - 239 Baker Island
+ok 490 - get_id_for_name - 239 Baker Island
+ok 491 - get_name_for_id - 240 Guam
+ok 492 - get_id_for_name - 240 Guam
+ok 493 - get_name_for_id - 241 Howland Island
+ok 494 - get_id_for_name - 241 Howland Island
+ok 495 - get_name_for_id - 242 Jarvis Island
+ok 496 - get_id_for_name - 242 Jarvis Island
+ok 497 - get_name_for_id - 243 Johnston Atoll
+ok 498 - get_id_for_name - 243 Johnston Atoll
+ok 499 - get_name_for_id - 244 Kingman Reef
+ok 500 - get_id_for_name - 244 Kingman Reef
+ok 501 - get_name_for_id - 245 Midway Islands
+ok 502 - get_id_for_name - 245 Midway Islands
+ok 503 - get_name_for_id - 246 Navassa Island
+ok 504 - get_id_for_name - 246 Navassa Island
+ok 505 - get_name_for_id - 247 Palmyra Atoll
+ok 506 - get_id_for_name - 247 Palmyra Atoll
+ok 507 - get_name_for_id - 248 U.S. Virgin Islands
+ok 508 - get_id_for_name - 248 U.S. Virgin Islands
+ok 509 - get_name_for_id - 249 Wake Island
+ok 510 - get_id_for_name - 249 Wake Island
+ok 511 - get_name_for_id - 250 Hong Kong
+ok 512 - get_id_for_name - 250 Hong Kong
+ok 513 - get_name_for_id - 251 Macau
+ok 514 - get_id_for_name - 251 Macau
+ok 515 - get_name_for_id - 252 Faroe Islands
+ok 516 - get_id_for_name - 252 Faroe Islands
+ok 517 - get_name_for_id - 253 Greenland
+ok 518 - get_id_for_name - 253 Greenland
+ok 519 - get_name_for_id - 254 French Guiana
+ok 520 - get_id_for_name - 254 French Guiana
+ok 521 - get_name_for_id - 255 Guadeloupe
+ok 522 - get_id_for_name - 255 Guadeloupe
+ok 523 - get_name_for_id - 256 Martinique
+ok 524 - get_id_for_name - 256 Martinique
+ok 525 - get_name_for_id - 257 Reunion
+ok 526 - get_id_for_name - 257 Reunion
+ok 527 - get_name_for_id - 258 Aland
+ok 528 - get_id_for_name - 258 Aland
+ok 529 - get_name_for_id - 259 Aruba
+ok 530 - get_id_for_name - 259 Aruba
+ok 531 - get_name_for_id - 260 Netherlands Antilles
+ok 532 - get_id_for_name - 260 Netherlands Antilles
+ok 533 - get_name_for_id - 261 Svalbard
+ok 534 - get_id_for_name - 261 Svalbard
+ok 535 - get_name_for_id - 262 Ascension
+ok 536 - get_id_for_name - 262 Ascension
+ok 537 - get_name_for_id - 263 Tristan da Cunha
+ok 538 - get_id_for_name - 263 Tristan da Cunha
+ok 539 - get_name_for_id - 268 Australian Antarctic Territory
+ok 540 - get_id_for_name - 268 Australian Antarctic Territory
+ok 541 - get_name_for_id - 269 Ross Dependency
+ok 542 - get_id_for_name - 269 Ross Dependency
+ok 543 - get_name_for_id - 270 Peter I Island
+ok 544 - get_id_for_name - 270 Peter I Island
+ok 545 - get_name_for_id - 271 Queen Maud Land
+ok 546 - get_id_for_name - 271 Queen Maud Land
+ok 547 - get_name_for_id - 272 British Antarctic Territory
+ok 548 - get_id_for_name - 272 British Antarctic Territory
+1..548
+
+############## 04-oDesk-Model-Skill.t
+ubuntu@ubuntu-xenial:~/odesk-perl-test$ perl t/04-oDesk-Model-Skill.t
+ok 1 - use oDesk::DB;
+ok 2 - use oDesk::Model::Skill;
+ok 3 - db is required parameter
+ok 4 - An object of class 'oDesk::Model::Skill' isa 'oDesk::Model::Skill'
+ok 5 - An object of class 'oDesk::Model::Skill' isa 'oDesk::Model::Skill'
+ok 6 - get_all_hashref
+ok 7 - An object of class 'oDesk::Model::Skill' isa 'oDesk::Model::Skill'
+ok 8 - arrayref returned in scalar context
+ok 9 - contents of arrayref are correct
+ok 10 - array returned has correct number of elements
+ok 11 - contents of arrayref are correct
+ok 12 - An object of class 'oDesk::Model::Skill' isa 'oDesk::Model::Skill'
+ok 13 - get_name_for_id - 1 perl
+ok 14 - get_id_for_name - 1 perl
+ok 15 - get_name_for_id - 2 mod_perl
+ok 16 - get_id_for_name - 2 mod_perl
+ok 17 - get_name_for_id - 3 unix
+ok 18 - get_id_for_name - 3 unix
+ok 19 - get_name_for_id - 4 java
+ok 20 - get_id_for_name - 4 java
+ok 21 - get_name_for_id - 5 php
+ok 22 - get_id_for_name - 5 php
+ok 23 - get_name_for_id - 6 c
+ok 24 - get_id_for_name - 6 c
+ok 25 - get_name_for_id - 7 c++
+ok 26 - get_id_for_name - 7 c++
+ok 27 - get_name_for_id - 8 sql
+ok 28 - get_id_for_name - 8 sql
+ok 29 - get_name_for_id - 9 html
+ok 30 - get_id_for_name - 9 html
+ok 31 - get_name_for_id - 10 css
+ok 32 - get_id_for_name - 10 css
+ok 33 - get_name_for_id - 11 javascript
+ok 34 - get_id_for_name - 11 javascript
+ok 35 - get_name_for_id - 12 apache
+ok 36 - get_id_for_name - 12 apache
+ok 37 - get_name_for_id - 13 emacs
+ok 38 - get_id_for_name - 13 emacs
+ok 39 - get_name_for_id - 14 vi
+ok 40 - get_id_for_name - 14 vi
+ok 41 - get_name_for_id - 15 eclipse
+ok 42 - get_id_for_name - 15 eclipse
+1..42
+
+############## 05-oDesk-Model-Contractor.t
+ubuntu@ubuntu-xenial:~/odesk-perl-test$ perl t/05-oDesk-Model-Contractor.t
+ok 1 - use oDesk::DB;
+ok 2 - use oDesk::Model::Skill;
+ok 3 - use oDesk::Model::Country;
+ok 4 - use oDesk::Model::Contractor;
+ok 5 - db is required parameter
+ok 6 - An object of class 'oDesk::Model::Contractor' isa 'oDesk::Model::Contractor'
+ok 7 - An object of class 'oDesk::Model::Contractor' isa 'oDesk::Model::Contractor'
+ok 8 - An object of class 'oDesk::Model::Country' isa 'oDesk::Model::Country'
+ok 9 - create - id
+ok 10 - create - first_name
+ok 11 - create - last_name
+ok 12 - create - hourly_rate
+ok 13 - create - country_id
+ok 14 - load - id
+ok 15 - load - first_name
+ok 16 - load - last_name
+ok 17 - load - hourly_rate
+ok 18 - load - country_id
+ok 19 - load - id
+ok 20 - load - first_name
+ok 21 - load - last_name
+ok 22 - load - hourly_rate
+ok 23 - load - country_id
+ok 24 - delete
+ok 25 - An object of class 'oDesk::Model::Contractor' isa 'oDesk::Model::Contractor'
+ok 26 - An object of class 'oDesk::Model::Country' isa 'oDesk::Model::Country'
+ok 27 - add_skill and get_skills
+ok 28 - delete_skill
+ok 29 - delete
+ok 30 - An object of class 'oDesk::Model::Contractor' isa 'oDesk::Model::Contractor'
+ok 31 - An object of class 'oDesk::Model::Country' isa 'oDesk::Model::Country'
+ok 32 - get_common_skills
+ok 33 - delete
+1..33
+############## 06-oDesk-Parser-ProgrammingLanguages-Wikipedia.t
+ubuntu@ubuntu-xenial:~/odesk-perl-test$ perl t/06-oDesk-Parser-ProgrammingLanguages-Wikipedia.t
+ok 1 - use oDesk::Parser::ProgrammingLanguages::Wikipedia;
+ok 2 - An object of class 'oDesk::Parser::ProgrammingLanguages::Wikipedia' isa 'oDesk::Parser::ProgrammingLanguages::Wikipedia'
+ok 3 - default url attribute
+ok 4 - An object of class 'oDesk::Parser::ProgrammingLanguages::Wikipedia' isa 'oDesk::Parser::ProgrammingLanguages::Wikipedia'
+ok 5 - passed url attribute
+ok 6 - get_data - scalar context
+ok 7 - get_data - list context
+ok 8 - get_anagrams
+1..8
