@@ -4,6 +4,13 @@ use following command :-
 sudo cpan install -f LWP::UserAgent HTML::TreeBuilder SQL::Abstract
 
 
+For 06-oDesk-Parser-ProgrammingLanguages-Wikipedia.t file always pull latestest data from 
+following url 
+
+http://en.wikipedia.org/wiki/List_of_programming_languages
+
+and update the file 06-oDesk-Parser-ProgrammingLanguages-Wikipedia.t
+
 #############################unit test result ###########################
 
 
